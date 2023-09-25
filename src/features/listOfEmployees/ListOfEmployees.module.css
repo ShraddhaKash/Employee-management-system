@@ -1,0 +1,20 @@
+.btn {
+  right: 20px;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1.5px solid #2148c0;
+  background: #fff;
+  padding: 11px 1px 10px 10px;
+}
+.btnMessage {
+  color: #2148c0;
+  font-size: 15px;
+}
+.btnDiv {
+  margin-top: 75px;
+  width: 97%;
+  display: flex;
+  justify-content: right;
+  padding: 1.5%;
+}

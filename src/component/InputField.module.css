@@ -1,0 +1,13 @@
+.inputField {
+  width: 300px;
+  height: 33px;
+  border-radius: 4px;
+  border: 1px solid #2148c0;
+  background: #fff;
+  padding: 11px 1px 10px 10px;
+}
+.error {
+  color: red;
+  font-size: 13px;
+  width: 300px;
+}

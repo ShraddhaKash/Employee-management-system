@@ -1,0 +1,9 @@
+.selectField {
+  width: 315px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #2148c0;
+  background: #fff;
+  padding: 11px 1px 10px 10px;
+}
