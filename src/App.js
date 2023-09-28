@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <EditEmployee />,
   },
   {
-    path: "/edit-employee/:id",
+    path: "/edit-employee/:_id",
     element: <EditEmployee />,
   },
   {

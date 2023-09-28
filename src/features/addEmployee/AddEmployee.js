@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addItem } from "./addEmployeeSlice";
+import { postEmployee } from "./addEmployeeSlice";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "./AddEmployee.module.css";
 import Button from "../../component/Button";
@@ -73,7 +73,14 @@ function AddEmployee() {
     setIsShowDialogueBoxSubmit(false);
   }
   function handleOnConfirmSubmit() {
-    dispatch(addItem({ fname, lname, email, phone, domain }));
+    const empData = {
+      firstName: fname,
+      lastName: lname,
+      email,
+      phoneNo: phone,
+      domain,
+    };
+    dispatch(postEmployee(empData));
     navigate("/list-of-employees");
   }
   function handleOnCancelDiscard() {

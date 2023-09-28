@@ -1,26 +1,27 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editItem } from "../addEmployee/addEmployeeSlice";
+
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "../addEmployee/AddEmployee.module.css";
 import Button from "../../component/Button";
 import InputField from "../../component/InputField";
 import SelectField from "../../component/SelectField";
 import DialogueBox from "../../component/DialogueBox";
+import { editEmployees } from "../addEmployee/addEmployeeSlice";
 
 function AddEmployee() {
-  const { id } = useParams();
+  const { _id } = useParams();
   const employee = useSelector((store) => store.addEmployee.employee);
   console.log(employee);
-  console.log(id);
-  const employeeDataById = employee.filter((item) => item.id === id);
+  console.log(_id);
+  const employeeDataById = employee.filter((item) => item._id === _id);
   console.log(employeeDataById[0]);
   const {
-    fname: currFname,
-    lname: currLname,
+    firstName: currFname,
+    lastName: currLname,
     email: currEmail,
-    phone: currPhone,
+    phoneNo: currPhone,
     domain: currDomain,
   } = employeeDataById[0];
 
@@ -42,7 +43,16 @@ function AddEmployee() {
 
   function editEmployee() {
     if (!fname || !lname || !email || !phone || !domain) return;
-    dispatch(editItem({ id, fname, lname, email, phone, domain }));
+
+    const empData = {
+      firstName: fname,
+      lastName: lname,
+      email,
+      phoneNo: phone,
+      domain,
+    };
+    console.log(empData);
+    dispatch(editEmployees({ _id, empData }));
     navigate("/list-of-employees");
   }
 
@@ -109,21 +119,21 @@ function AddEmployee() {
           <div className={styles.inputDiv}>
             <InputField
               type={"text"}
-              id={"fname"}
+              _id={"fname"}
               placeholder={"FIRST NAME"}
               value={currFname}
               onChange={(fn) => handleFname(fn)}
             />
             <InputField
               type={"text"}
-              id={"lname"}
+              _id={"lname"}
               placeholder={"LAST NAME"}
               value={currLname}
               onChange={(ln) => handleLname(ln)}
             />
             <InputField
               type={"email"}
-              id={"email"}
+              _id={"email"}
               placeholder={"EMAIL"}
               errorMessage={emailError}
               value={currEmail}
@@ -131,7 +141,7 @@ function AddEmployee() {
             />
             <InputField
               type={"phone"}
-              id={"phone"}
+              _id={"phone"}
               placeholder={"PHONE NO"}
               errorMessage={phoneError}
               value={currPhone}

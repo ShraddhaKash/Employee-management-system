@@ -1,49 +1,95 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
+import axios from "axios";
+import {
+  deleteEmployeedata,
+  editEmployeeData,
+  postEmployeeData,
+} from "../../service/employeeService";
 
 const initialState = {
-  employee: [],
+  employee: [
+    {
+      _id: "",
+      fname: "",
+      lname: "",
+      email: "",
+      phone: "",
+      domain: "",
+    },
+  ],
 };
+
+// export const getEmployee = createAsyncThunk(
+//   "addEmployee/getEmployeeData",
+//   async function (data) {
+//     return getEmployeeData(data);
+//   }
+// );
+
+export const postEmployee = createAsyncThunk(
+  "addEmployee/postEmployeeData",
+  async function (data) {
+    return postEmployeeData(data);
+  }
+);
+
+export const editEmployees = createAsyncThunk(
+  "addEmployee/editEmployeeData",
+  async function ({ _id, empData }) {
+    return editEmployeeData(_id, empData);
+  }
+);
+
+export const deleteEmployee = createAsyncThunk(
+  "addEmployee/deleteEmployeeData",
+  async function (_id) {
+    return deleteEmployeedata(_id);
+  }
+);
 
 const addEmployeeSlice = createSlice({
   name: "addEmployee",
   initialState,
   reducers: {
-    addItem(state, action) {
-      const emp = {
-        id: nanoid(),
-        fname: action.payload.fname,
-        lname: action.payload.lname,
-        email: action.payload.email,
-        phone: action.payload.phone,
-        domain: action.payload.domain,
-      };
-      state.employee.push(emp);
-    },
-    deleteItem(state, action) {
-      state.employee = state.employee.filter(
-        (emp) => emp.id !== action.payload
-      );
-    },
-    editItem(state, action) {
-      state.employee.map((emp) => {
-        if (emp.id === action.payload.id) {
-          emp.fname = action.payload.fname;
-          emp.lname = action.payload.lname;
-          emp.email = action.payload.email;
-          emp.phone = action.payload.phone;
-          emp.domain = action.payload.domain;
-        }
-        return null;
-      });
-    },
+    // addItem(state, action) {
+    //   const emp = {
+    //     id: nanoid(),
+    //     firstName: action.payload.firstName,
+    //     lastName: action.payload.lastName,
+    //     email: action.payload.email,
+    //     phoneNo: action.payload.phoneNo,
+    //     domain: action.payload.domain,
+    //   };
+    //   state.employee.push(emp);
+    // },
+    // deleteItem(state, action) {
+    //   state.employee = state.employee.filter(
+    //     (emp) => emp.id !== action.payload
+    //   );
+    // },
+    // editItem(state, action) {
+    //   state.employee.map((emp) => {
+    //     if (emp.id === action.payload.id) {
+    //       emp.firstName = action.payload.firstName;
+    //       emp.lastName = action.payload.lastName;
+    //       emp.email = action.payload.email;
+    //       emp.phoneNo = action.payload.phoneNo;
+    //       emp.domain = action.payload.domain;
+    //     }
+    //     return null;
+    //   });
+    // },
     clearListItems(state, action) {
       state.employee = [];
+    },
+    setEmployee(state, action) {
+      state.employee = action.payload;
     },
   },
 });
 
-export const { addItem, deleteItem, editItem, clearListItems } =
+export const { addItem, deleteItem, editItem, clearListItems, setEmployee } =
   addEmployeeSlice.actions;
 
 export default addEmployeeSlice.reducer;

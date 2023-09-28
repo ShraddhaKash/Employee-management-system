@@ -20,7 +20,7 @@ function Employee() {
 
         <tbody>
           {EmpData.map((emp) => (
-            <Data emp={emp} key={emp.id} />
+            <Data emp={emp} key={emp._id} />
           ))}
         </tbody>
       </table>

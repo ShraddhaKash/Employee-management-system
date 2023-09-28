@@ -1,12 +1,20 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../component/Navbar";
 import Employee from "./Employee";
 import styles from "./ListOfEmployees.module.css";
 import { Link } from "react-router-dom";
+import getAllEmployees from "../../service/employeeService";
+import { useEffect } from "react";
+import { setEmployee } from "../addEmployee/addEmployeeSlice";
 
 function LIstOfEmployees() {
-  const employee = useSelector((store) => store.addEmployee.employee);
-  console.log(employee);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getAllEmployees().then((res) => {
+      dispatch(setEmployee(res.data));
+    });
+  }, [dispatch]);
 
   return (
     <div>
