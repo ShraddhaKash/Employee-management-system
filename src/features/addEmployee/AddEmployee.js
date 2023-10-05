@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postEmployee } from "./addEmployeeSlice";
+import { updateEmployee } from "./addEmployeeSlice";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "./AddEmployee.module.css";
 import Button from "../../component/Button";
@@ -80,7 +80,7 @@ function AddEmployee() {
       phoneNo: phone,
       domain,
     };
-    dispatch(postEmployee(empData));
+    dispatch(updateEmployee(empData));
     navigate("/list-of-employees");
   }
   function handleOnCancelDiscard() {

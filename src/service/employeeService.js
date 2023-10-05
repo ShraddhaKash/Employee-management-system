@@ -3,7 +3,6 @@ import axios from "axios";
 export default async function getAllEmployees() {
   try {
     const response = await axios.get(`http://localhost:8080/employees`);
-    console.log(response);
     return response;
   } catch (error) {
     console.error("Error fetching employees:", error);
@@ -11,13 +10,12 @@ export default async function getAllEmployees() {
   }
 }
 
-export async function postEmployeeData(empData) {
+export async function updateEmployeeData(empData) {
   try {
     const response = await axios.post(
       `http://localhost:8080/employees`,
       empData
     );
-    console.log(response);
     return response.data;
   } catch (error) {
     console.error("Error posting employee : ", error);
@@ -31,7 +29,6 @@ export async function editEmployeeData(_id, empData) {
       `http://localhost:8080/employees/${_id}`,
       empData
     );
-    console.log(response);
     return response;
   } catch (error) {
     console.error("Error updating employee : ", error);

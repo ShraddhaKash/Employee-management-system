@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import styles from "./AppLayout.module.css";
 import DashboardLogin from "../features/dashboardLogin/DashboardLogin";
 import AddEmployee from "../features/addEmployee/AddEmployee";
-import { Outlet } from "react-router-dom";
 
 function AppLayout() {
   const email = useSelector((store) => store.login.email);

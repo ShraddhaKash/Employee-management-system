@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { nanoid } from "@reduxjs/toolkit";
-import axios from "axios";
+// import { nanoid } from "@reduxjs/toolkit";
+// import axios from "axios";
 import {
   deleteEmployeedata,
   editEmployeeData,
-  postEmployeeData,
+  updateEmployeeData,
 } from "../../service/employeeService";
 
 const initialState = {
@@ -27,10 +27,10 @@ const initialState = {
 //   }
 // );
 
-export const postEmployee = createAsyncThunk(
-  "addEmployee/postEmployeeData",
+export const updateEmployee = createAsyncThunk(
+  "addEmployee/updateEmployeeData",
   async function (data) {
-    return postEmployeeData(data);
+    return updateEmployeeData(data);
   }
 );
 
@@ -63,7 +63,7 @@ const addEmployeeSlice = createSlice({
     //   };
     //   state.employee.push(emp);
     // },
-    // deleteItem(state, action) {
+    // deleteEmployeedata(state, action) {
     //   state.employee = state.employee.filter(
     //     (emp) => emp.id !== action.payload
     //   );

@@ -1,10 +1,10 @@
-import InputField from "../../component/InputField";
-import styles from "./DashboardLogin.module.css";
-import Button from "../../component/Button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "./loginSlice";
+import InputField from "../../component/InputField";
+import styles from "./DashboardLogin.module.css";
+import Button from "../../component/Button";
 
 function DashboardLogin() {
   const [email, setEmail] = useState("");

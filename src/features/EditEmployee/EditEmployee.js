@@ -1,22 +1,18 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { editEmployees } from "../addEmployee/addEmployeeSlice";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "../addEmployee/AddEmployee.module.css";
 import Button from "../../component/Button";
 import InputField from "../../component/InputField";
 import SelectField from "../../component/SelectField";
 import DialogueBox from "../../component/DialogueBox";
-import { editEmployees } from "../addEmployee/addEmployeeSlice";
 
 function AddEmployee() {
   const { _id } = useParams();
   const employee = useSelector((store) => store.addEmployee.employee);
-  console.log(employee);
-  console.log(_id);
   const employeeDataById = employee.filter((item) => item._id === _id);
-  console.log(employeeDataById[0]);
   const {
     firstName: currFname,
     lastName: currLname,
@@ -51,7 +47,6 @@ function AddEmployee() {
       phoneNo: phone,
       domain,
     };
-    console.log(empData);
     dispatch(editEmployees({ _id, empData }));
     navigate("/list-of-employees");
   }

@@ -1,6 +1,29 @@
 import styles from "./SelectField.module.css";
 
 function SelectField({ onChange, value }) {
+  const options = [
+    {
+      value: "",
+      option: "DOMAIN",
+    },
+    {
+      value: "Testing",
+      option: "Testing",
+    },
+    {
+      value: "Development",
+      option: "Development",
+    },
+    {
+      value: "Operations",
+      option: "Operations",
+    },
+    {
+      value: "Accounts",
+      option: "Accounts",
+    },
+  ];
+
   return (
     <select
       className={styles.selectField}
@@ -9,11 +32,11 @@ function SelectField({ onChange, value }) {
       onChange={(e) => onChange(e.target.value)}
       required
     >
-      <option value="">DOMAIN</option>
-      <option value="Testing">Testing</option>
-      <option value="Development">Development</option>
-      <option value="Operations">Operations</option>
-      <option value="Accounts">Accounts</option>
+      {options.map((op) => (
+        <option value={op.value} key={op.value}>
+          {op.option}
+        </option>
+      ))}
     </select>
   );
 }

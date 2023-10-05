@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Hamburger.module.css";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../features/dashboardLogin/loginSlice";
 import { clearListItems } from "../features/addEmployee/addEmployeeSlice";
+import styles from "./Hamburger.module.css";
 
 function Hamburger() {
   const email = useSelector((store) => store.login.email);

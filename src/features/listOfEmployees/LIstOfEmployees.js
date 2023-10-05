@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../../component/Navbar";
-import Employee from "./Employee";
-import styles from "./ListOfEmployees.module.css";
 import { Link } from "react-router-dom";
-import getAllEmployees from "../../service/employeeService";
 import { useEffect } from "react";
 import { setEmployee } from "../addEmployee/addEmployeeSlice";
+import Navbar from "../../component/Navbar";
+import Employee from "./Employee";
+import getAllEmployees from "../../service/employeeService";
+import styles from "./ListOfEmployees.module.css";
 
 function LIstOfEmployees() {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
+import { useSelector } from "react-redux";
 import styles from "./Employee.module.css";
 import Data from "./Data";
-import { useSelector } from "react-redux";
 
 function Employee() {
   const EmpData = useSelector((store) => store.addEmployee.employee);

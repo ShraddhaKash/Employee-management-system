@@ -6,7 +6,7 @@ function DialogueBox({ onClickCancel, onClickConfirm }) {
       <div id={styles.dialogueBoxMain}>
         <div className={styles.dialogueBox}>
           <div>
-            <p className={styles.dialogueP}>Are you sure?</p>
+            <p className={styles.dialogueTitle}>Are you sure?</p>
           </div>
           <div className={styles.dialogueBoxBtn}>
             <button

@@ -4,6 +4,7 @@ import AddEmployee from "./features/addEmployee/AddEmployee";
 import LIstOfEmployees from "./features/listOfEmployees/LIstOfEmployees";
 import EditEmployee from "./features/EditEmployee/EditEmployee";
 import AppLayout from "./component/AppLayout";
+import SeachLocation from "./features/weather/SeachLocation";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/list-of-employees",
     element: <LIstOfEmployees />,
+  },
+  {
+    path: "/weather",
+    element: <SeachLocation />,
   },
 ]);
 

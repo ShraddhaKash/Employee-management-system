@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Hamburger from "./Hamburger";
 
@@ -12,13 +13,20 @@ function Navbar() {
   return (
     <nav>
       <div className={styles.navbar}>
-        <span>List of employees</span>
-        <div onClick={handleClick}>
+        <Link to={"/list-of-employees"}>
+          <button className={styles.navHeading}>List of employees</button>
+        </Link>
+        <div className={styles.navBtnDiv}>
+          <Link to="/weather">
+            <button className={styles.navBtn}>Search Weather</button>
+          </Link>
+
           <svg
+            onClick={handleClick}
             xmlns="http://www.w3.org/2000/svg"
             width="60"
             height="60"
-            viewBox="0 0 80 80"
+            viewBox="0 0 80 70"
             fill="none"
           >
             <g clip-path="url(#clip0_2217_51)">

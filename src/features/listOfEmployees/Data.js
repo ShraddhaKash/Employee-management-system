@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
-import styles from "./Employee.module.css";
-import { deleteItem } from "../addEmployee/addEmployeeSlice";
 import { useNavigate } from "react-router-dom";
 import { deleteEmployee } from "../addEmployee/addEmployeeSlice";
+import styles from "./Employee.module.css";
 
 function Data({ emp }) {
   const { _id, firstName, lastName, email, phoneNo, domain } = emp;

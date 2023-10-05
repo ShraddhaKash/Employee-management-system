@@ -1,0 +1,13 @@
+.heading {
+  background-color: #2148c0;
+  color: #fff;
+  border-radius: 5px;
+  width: 500px;
+  padding: 10px 0 10px 20px;
+}
+.details {
+  border: 1.5px solid #2148c0;
+  border-radius: 5px;
+  padding: 20px;
+  color: #2148c0;
+}

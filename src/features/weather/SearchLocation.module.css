@@ -1,0 +1,21 @@
+.searchMainDiv {
+  padding-top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.searchDiv {
+  display: flex;
+  width: 380px;
+  justify-content: space-between;
+}
+.searchBtn {
+  width: 70px;
+  height: 33px;
+  background-color: #2148c0;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #2148c0;
+}
